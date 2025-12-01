@@ -47,6 +47,9 @@ export function Quiz() {
         <p className="text-center">
           You answered {correctCount} out of {questions.length} correctly.
         </p>
+        <Button onClick={() => { setCurrentIndex(0); setCorrectCount(0); setUserAnswer(""); setResult(null); }} className="w-full mt-4">
+          Restart Quiz
+        </Button>
       </div>
     );
   }
@@ -65,6 +68,7 @@ export function Quiz() {
         Submit
       </Button>
       {result && <p className="mt-2 text-center">{result}</p>}
+      <p className="text-center">Correct: {correctCount} / {currentIndex + 1}</p>
       {result && currentIndex < questions.length - 1 && (
         <Button onClick={handleNext} className="w-full">
           Next
