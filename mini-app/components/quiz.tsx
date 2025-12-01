@@ -19,6 +19,7 @@ export function Quiz() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isCorrect, setIsCorrect] = useState(false);
   const [userAnswer, setUserAnswer] = useState("");
   const [result, setResult] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
@@ -29,8 +30,10 @@ export function Quiz() {
     if (correct) {
       setCorrectCount((c) => c + 1);
       setResult(`Correct! ${questions[currentIndex].question.split("What is the capital of")[1].trim()} is the capital.`);
+      setIsCorrect(true);
     } else {
       setResult(`Wrong. The capital is ${questions[currentIndex].answer}.`);
+      setIsCorrect(false);
     }
   };
 
@@ -38,6 +41,7 @@ export function Quiz() {
     setCurrentIndex((i) => i + 1);
     setUserAnswer("");
     setResult(null);
+    setIsCorrect(false);
   };
 
   if (currentIndex >= questions.length) {
@@ -69,7 +73,7 @@ export function Quiz() {
       </Button>
       {result && <p className="mt-2 text-center">{result}</p>}
       <p className="text-center">Correct: {correctCount} / {currentIndex + 1}</p>
-      {result && currentIndex < questions.length - 1 && (
+      {result && isCorrect && currentIndex < questions.length - 1 && (
         <Button onClick={handleNext} className="w-full">
           Next
         </Button>
