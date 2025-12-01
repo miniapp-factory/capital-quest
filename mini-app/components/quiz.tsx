@@ -36,6 +36,7 @@ export function Quiz() {
       setResult(`Wrong. The capital is ${questions[currentIndex].answer}.`);
       setIsCorrect(false);
     }
+    setSubmitted(true);
   };
 
   const handleNext = () => {
@@ -43,6 +44,7 @@ export function Quiz() {
     setUserAnswer("");
     setResult(null);
     setIsCorrect(false);
+    setSubmitted(false);
   };
 
   if (currentIndex >= questions.length) {
@@ -69,7 +71,7 @@ export function Quiz() {
         onChange={(e) => setUserAnswer(e.target.value)}
         className="w-full"
       />
-      <Button onClick={handleSubmit} className="w-full">
+      <Button onClick={handleSubmit} className="w-full" disabled={submitted}>
         Submit
       </Button>
       {result && <p className="mt-2 text-center">{result}</p>}
