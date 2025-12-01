@@ -48,3 +48,9 @@
 
 # 2025-12-01 06:34:40.609096
 +Fix where it can only guess once every question
+
+# 2025-12-01 06:51:19.094899
++The submit button can only submit 1 guess per question
+
+# 2025-12-01 06:51:19.095349
++The submit button can only submit 1 guess per question
