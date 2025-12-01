@@ -23,6 +23,7 @@ export function Quiz() {
   const [userAnswer, setUserAnswer] = useState("");
   const [result, setResult] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
     const trimmed = userAnswer.trim().toLowerCase();
