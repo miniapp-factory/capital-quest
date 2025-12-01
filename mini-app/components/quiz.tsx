@@ -3,6 +3,8 @@ import * as React from "react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 export function Quiz() {
   const questions = [
@@ -49,7 +51,7 @@ export function Quiz() {
 
   if (currentIndex >= questions.length) {
     return (
-      <div className="flex flex-col gap-4 w-full max-w-md">
+      <Card className="flex flex-col gap-4 w-full max-w-md p-6">
         <h2 className="text-xl font-semibold">Quiz Complete</h2>
         <p className="text-center">
           You answered {correctCount} out of {questions.length} correctly.
@@ -63,6 +65,7 @@ export function Quiz() {
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-md">
+      <Progress value={(currentIndex + 1) / questions.length * 100} className="w-full mb-4" />
       <h2 className="text-xl font-semibold">{questions[currentIndex].question}</h2>
       <Input
         type="text"
