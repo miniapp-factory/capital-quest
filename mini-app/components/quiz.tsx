@@ -79,7 +79,7 @@ export function Quiz() {
       </Button>
       {result && <p className="mt-2 text-center">{result}</p>}
       <p className="text-center">Correct: {correctCount} / {currentIndex + 1}</p>
-      {result && isCorrect && currentIndex < questions.length - 1 && (
+      {result && currentIndex < questions.length - 1 && (
         <Button onClick={handleNext} className="w-full">
           Next
         </Button>
