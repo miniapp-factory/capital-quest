@@ -59,7 +59,7 @@ export function Quiz() {
         <Button onClick={() => { setCurrentIndex(0); setCorrectCount(0); setUserAnswer(""); setResult(null); }} className="w-full mt-4">
           Restart Quiz
         </Button>
-      </div>
+      </Card>
     );
   }
 
